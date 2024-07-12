@@ -37,10 +37,13 @@ class TabBarViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: favoritesVC)
         let nav4 = UINavigationController(rootViewController: settingsVC)
         
-        nav1.tabBarItem =  UITabBarItem(title: "Pokemon", image: UIImage(named:"PokemonIcon"), tag: 1)
-        nav2.tabBarItem =  UITabBarItem(title: "Captures", image: UIImage(systemName: "home"), tag: 2)
-        nav3.tabBarItem =  UITabBarItem(title: "Favorites", image: UIImage(systemName: "home"), tag: 3)
-        nav4.tabBarItem =  UITabBarItem(title: "Settings", image: UIImage(systemName: "home"), tag: 4)
+        nav1.tabBarItem =  UITabBarItem(title: "Pokemon",
+                                        image: UIImage(named:"Pokemon")?.resized(to: CGSize(width: 30, height: 35)),
+                                        tag: 1)
+        
+        nav2.tabBarItem =  UITabBarItem(title: "Captures", image: UIImage(systemName: "person"), tag: 2)
+        nav3.tabBarItem =  UITabBarItem(title: "Favorites", image: UIImage(systemName: "person"), tag: 3)
+        nav4.tabBarItem =  UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 4)
         
         for nav in [nav1,nav2,nav3,nav4] {
             nav.navigationBar.prefersLargeTitles = true
