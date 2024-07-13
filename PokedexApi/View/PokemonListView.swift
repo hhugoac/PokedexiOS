@@ -19,12 +19,29 @@ class PokemonListView: UIView {
         return spinner
     }()
     
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isHidden = true
+        collectionView.alpha = 0
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(UICollectionViewCell.self,
+                                forCellWithReuseIdentifier: "cell")
+        //collectionView.register(RMFooterLoadingCollectionReusableView.self,
+        //                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+        //                        withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
+        return collectionView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        addSubview(spinner)
+        addSubviews(spinner, collectionView)
         addConstraints()
         spinner.startAnimating()
+        viewModel.delegate = self
         viewModel.fetchPokemonList()
     }
     
@@ -37,7 +54,28 @@ class PokemonListView: UIView {
             spinner.widthAnchor.constraint(equalToConstant: 100),
             spinner.heightAnchor.constraint(equalToConstant: 100),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor)
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leftAnchor.constraint(equalTo: leftAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
+    }
+    
+    private func setupCollectionView() {
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
+    }
+}
+
+extension PokemonListView: PokemonListViewModelDelegate {
+    func didLoadInitialPokemonList() {
+        spinner.stopAnimating()
+        self.collectionView.isHidden = false
+        self.collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
     }
 }
