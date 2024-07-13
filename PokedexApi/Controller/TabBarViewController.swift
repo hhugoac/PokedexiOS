@@ -37,8 +37,10 @@ class TabBarViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: favoritesVC)
         let nav4 = UINavigationController(rootViewController: settingsVC)
         
+        let pokemonIcon = UIImage(named:"Pokemon")?.resized(to: CGSize(width: 32, height: 40))
+        
         nav1.tabBarItem =  UITabBarItem(title: "Pokemon",
-                                        image: UIImage(named:"Pokemon")?.resized(to: CGSize(width: 30, height: 35)),
+                                        image: pokemonIcon,
                                         tag: 1)
         
         nav2.tabBarItem =  UITabBarItem(title: "Captures", image: UIImage(systemName: "person"), tag: 2)
