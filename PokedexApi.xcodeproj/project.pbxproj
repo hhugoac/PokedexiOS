@@ -20,6 +20,7 @@
 		4C93A9ED2C3DCBF600423493 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93A9EC2C3DCBF600423493 /* SettingsViewController.swift */; };
 		4C93A9EF2C3DCC1500423493 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93A9EE2C3DCC1500423493 /* FavoriteListViewController.swift */; };
 		4C93A9F12C3DCC2900423493 /* CapturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93A9F02C3DCC2900423493 /* CapturesViewController.swift */; };
+		BF5860B42C42E97200D8FD06 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5860B32C42E97200D8FD06 /* PokemonListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4C93A9EC2C3DCBF600423493 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C93A9EE2C3DCC1500423493 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		4C93A9F02C3DCC2900423493 /* CapturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesViewController.swift; sourceTree = "<group>"; };
+		BF5860B32C42E97200D8FD06 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,8 @@
 		4C93A9D32C3DAEFE00423493 /* PokedexApi */ = {
 			isa = PBXGroup;
 			children = (
+				BF5860B22C42E95900D8FD06 /* ViewModel */,
+				BF5860B12C42E85200D8FD06 /* View */,
 				4C79AEA82C40796B0007480E /* ApiClient */,
 				4C79AEA52C4050000007480E /* Extensions */,
 				4C93A9E92C3DC99D00423493 /* Controller */,
@@ -118,6 +122,21 @@
 				4C93A9EE2C3DCC1500423493 /* FavoriteListViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF5860B12C42E85200D8FD06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF5860B22C42E95900D8FD06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF5860B32C42E97200D8FD06 /* PokemonListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +219,7 @@
 				4C79AEAC2C4080E70007480E /* Request.swift in Sources */,
 				4C93A9D72C3DAEFE00423493 /* SceneDelegate.swift in Sources */,
 				4C79AEAE2C4081020007480E /* Endpoint.swift in Sources */,
+				BF5860B42C42E97200D8FD06 /* PokemonListViewModel.swift in Sources */,
 				4C79AEA72C40501D0007480E /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
