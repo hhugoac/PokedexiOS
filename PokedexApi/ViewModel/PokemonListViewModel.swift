@@ -14,7 +14,7 @@ final class PokemonListViewModel : NSObject {
     public func fetchPokemonList() {
         Service.shared.execute(
             .init(endpoint: .pokemon), 
-            expecting: String.self) {
+            expecting: GetAllPokemonResponse.self) {
             [weak self] result in
             switch result {
             case .success(let data):
