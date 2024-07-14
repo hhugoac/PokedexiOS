@@ -38,10 +38,12 @@ class PokemonListView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .red
         addSubviews(spinner, collectionView)
         addConstraints()
         spinner.startAnimating()
         viewModel.delegate = self
+        setupCollectionView()
         viewModel.fetchPokemonList()
     }
     

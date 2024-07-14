@@ -14,10 +14,7 @@ protocol PokemonListViewModelDelegate: AnyObject {
 final class PokemonListViewModel : NSObject {
     
     public weak var delegate: PokemonListViewModelDelegate?
-    private var pokemons: [Pokemon] = [] {
-        didSet {
-        }
-    }
+    private var pokemons: [Pokemon] = []
     
     public func fetchPokemonList() {
         Service.shared.execute(
@@ -40,6 +37,7 @@ final class PokemonListViewModel : NSObject {
 
 extension PokemonListViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("😇 \(pokemons.count)")
         return pokemons.count
     }
     
