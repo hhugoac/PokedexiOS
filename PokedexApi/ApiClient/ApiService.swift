@@ -27,7 +27,6 @@ final class Service {
             completion(.failure(ServiceError.failedToGetData))
             return
         }
-        print(String(describing: urlRequest))
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(ServiceError.failedToCreateRequest))
@@ -35,7 +34,6 @@ final class Service {
             }
             do {
                 let result =  try JSONDecoder().decode(type.self, from: data)
-                print(String(describing: result))
                 completion(.success(result))
             } catch {
                 completion(.failure(error))

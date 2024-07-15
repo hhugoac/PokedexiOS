@@ -37,18 +37,17 @@ final class PokemonListViewModel : NSObject {
 
 extension PokemonListViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("😇 \(pokemons.count)")
         return pokemons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "cell",
+            withReuseIdentifier: PokemonCollectionViewCell.collectionIdentifier,
             for: indexPath
-        ) as? UICollectionViewCell else {
+        ) as? PokemonCollectionViewCell else {
             fatalError("Unsuported cell")
         }
-        cell.backgroundColor = .blue
+        //cell.backgroundColor = .blue
         
         return cell
     }

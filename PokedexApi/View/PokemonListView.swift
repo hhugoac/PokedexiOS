@@ -27,8 +27,8 @@ class PokemonListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
+        collectionView.register(PokemonCollectionViewCell.self,
+                                forCellWithReuseIdentifier: PokemonCollectionViewCell.collectionIdentifier)
         //collectionView.register(RMFooterLoadingCollectionReusableView.self,
         //                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
         //                        withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
