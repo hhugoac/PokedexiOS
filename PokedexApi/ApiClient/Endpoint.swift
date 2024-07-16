@@ -8,7 +8,7 @@
 import Foundation
 
 @frozen enum Endpoint: String {
-    case pokemon = "pokemon?limit=50&offset=0"
+    case pokemon = "pokemon?limit=20&offset=0"
     case detail
     case search
 }
