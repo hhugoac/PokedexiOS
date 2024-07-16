@@ -13,7 +13,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     private let pokemonImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -29,8 +29,10 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(pokemonImageView, nameLabel)
         addConstraints()
+        setUpLayer()
     }
     
     required init?(coder: NSCoder) {
@@ -49,6 +51,14 @@ class PokemonCollectionViewCell: UICollectionViewCell {
             pokemonImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             pokemonImageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3)
         ])
+    }
+    
+    private func setUpLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowColor = UIColor.secondaryLabel.cgColor
+        contentView.layer.cornerRadius = 4
+        contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
+        contentView.layer.shadowOpacity = 0.3
     }
     
     override func prepareForReuse() {
