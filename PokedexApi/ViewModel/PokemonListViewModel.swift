@@ -14,7 +14,20 @@ protocol PokemonListViewModelDelegate: AnyObject {
 final class PokemonListViewModel : NSObject {
     
     public weak var delegate: PokemonListViewModelDelegate?
-    private var pokemons: [Pokemon] = []
+    private var pokemons: [Pokemon] = [] {
+        didSet {
+            for pokemon in pokemons {
+                let viewModel = PokemonCollectionViewCellViewModel(
+                    pokemonName: pokemon.name,
+                    pokemonImageUrl: URL(string: pokemon.url))
+                if !cellViewModels.contains(viewModel) {
+                    cellViewModels.append(viewModel)
+                }
+            }
+        }
+    }
+    
+    private var cellViewModels: [PokemonCollectionViewCellViewModel] = []
     
     public func fetchPokemonList() {
         Service.shared.execute(
@@ -37,7 +50,7 @@ final class PokemonListViewModel : NSObject {
 
 extension PokemonListViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemons.count
+        return cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,8 +60,7 @@ extension PokemonListViewModel: UICollectionViewDataSource, UICollectionViewDele
         ) as? PokemonCollectionViewCell else {
             fatalError("Unsuported cell")
         }
-        //cell.backgroundColor = .blue
-        
+        cell.configure(with: cellViewModels[indexPath.row])
         return cell
     }
     
