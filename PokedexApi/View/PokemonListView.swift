@@ -29,9 +29,9 @@ class PokemonListView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(PokemonCollectionViewCell.self,
                                 forCellWithReuseIdentifier: PokemonCollectionViewCell.collectionIdentifier)
-        //collectionView.register(RMFooterLoadingCollectionReusableView.self,
-        //                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-        //                        withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
+        collectionView.register(FooterLoadingCollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: FooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
     

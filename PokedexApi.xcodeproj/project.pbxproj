@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C03BE072C473DD500701FAD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C03BE062C473DD500701FAD /* ImageLoader.swift */; };
+		4C6BDABD2C483E3300AA6CD9 /* FooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6BDABC2C483E3300AA6CD9 /* FooterLoadingCollectionReusableView.swift */; };
 		4C79AEA72C40501D0007480E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C79AEA62C40501D0007480E /* UIImage+Extensions.swift */; };
 		4C79AEAA2C40797E0007480E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C79AEA92C40797E0007480E /* ApiService.swift */; };
 		4C79AEAC2C4080E70007480E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C79AEAB2C4080E70007480E /* Request.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		4C03BE062C473DD500701FAD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		4C6BDABC2C483E3300AA6CD9 /* FooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		4C79AEA62C40501D0007480E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		4C79AEA92C40797E0007480E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		4C79AEAB2C4080E70007480E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				BF1610462C4306AA00C39DB6 /* PokemonListView.swift */,
 				4C8A9DF82C45749B007E31B8 /* PokemonCollectionViewCell.swift */,
+				4C6BDABC2C483E3300AA6CD9 /* FooterLoadingCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				4C79AEAA2C40797E0007480E /* ApiService.swift in Sources */,
 				4C03BE072C473DD500701FAD /* ImageLoader.swift in Sources */,
 				BF1610452C42F7B200C39DB6 /* Pokemon.swift in Sources */,
+				4C6BDABD2C483E3300AA6CD9 /* FooterLoadingCollectionReusableView.swift in Sources */,
 				4C93A9ED2C3DCBF600423493 /* SettingsViewController.swift in Sources */,
 				4C79AEAC2C4080E70007480E /* Request.swift in Sources */,
 				BF1610472C4306AA00C39DB6 /* PokemonListView.swift in Sources */,

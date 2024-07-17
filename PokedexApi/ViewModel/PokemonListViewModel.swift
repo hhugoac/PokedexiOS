@@ -121,6 +121,30 @@ extension PokemonListViewModel: UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionFooter,
+              shouldShowMoreIndicator,
+              let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: FooterLoadingCollectionReusableView.identifier,
+                for: indexPath) as? FooterLoadingCollectionReusableView else {
+            fatalError("unsupported view")
+        }
+        
+        footer.startAnimating()
+        return footer
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        guard shouldShowMoreIndicator else {
+            return .zero
+        }
+        
+        return CGSize(
+            width: collectionView.frame.width,
+            height: 100
+        )
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 30) / 2
