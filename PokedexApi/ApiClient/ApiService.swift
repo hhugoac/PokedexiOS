@@ -18,6 +18,11 @@ final class Service {
         case failedToGetData
     }
     
+    /// Send API call
+    /// - Parameters:
+    ///   - request: Request instance
+    ///   - type: The type expected to get back
+    ///   - completion: Callback with data or error
     public func execute<T: Codable>(
         _ request: Request,
         expecting type:T.Type,

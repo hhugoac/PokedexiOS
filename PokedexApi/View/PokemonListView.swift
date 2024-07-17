@@ -79,4 +79,14 @@ extension PokemonListView: PokemonListViewModelDelegate {
             self.collectionView.alpha = 1
         }
     }
+    
+    func didLoadMorePokemons(with newIndexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates {
+            self.collectionView.insertItems(at: newIndexPaths)
+        }
+    }
+    
+    func didSelectPokemon(_ pokemon: Pokemon) {
+    
+    }
 }
