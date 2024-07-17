@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol PokemonListViewDelegate: AnyObject {
+    func pokemonListView(
+        _ pokemonListView: PokemonListView,
+        didSelectedPokemon pokemon: Pokemon
+    )
+}
+
 /// View that handles showing list of pokemons and a loading ...
 class PokemonListView: UIView {
  
     private let viewModel = PokemonListViewModel()
+    public weak var delegate: PokemonListViewDelegate?
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -87,6 +95,7 @@ extension PokemonListView: PokemonListViewModelDelegate {
     }
     
     func didSelectPokemon(_ pokemon: Pokemon) {
-    
+        print(String(describing: pokemon))
+        delegate?.pokemonListView(self, didSelectedPokemon: pokemon)
     }
 }

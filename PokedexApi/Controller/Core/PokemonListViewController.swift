@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PokemonListViewController: UIViewController {
-    
+class PokemonListViewController: UIViewController, PokemonListViewDelegate {
+
     private let pokemonListView = PokemonListView()
 
     override func viewDidLoad() {
@@ -28,4 +28,13 @@ class PokemonListViewController: UIViewController {
         ])
     }
 
+    // MARK: - PokemonListViewDelegate
+    
+    func pokemonListView(_ pokemonListVie: PokemonListView, didSelectedPokemon pokemon: Pokemon) {
+        //let viewModel =
+        print(String(describing: pokemon))
+        let detailVC = PokemonDetailViewController()
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
