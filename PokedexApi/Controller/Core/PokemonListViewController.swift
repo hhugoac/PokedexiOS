@@ -20,6 +20,7 @@ class PokemonListViewController: UIViewController, PokemonListViewDelegate {
     }
 
     private func setupView() {
+        pokemonListView.delegate = self
         NSLayoutConstraint.activate([
             pokemonListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             pokemonListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -31,9 +32,9 @@ class PokemonListViewController: UIViewController, PokemonListViewDelegate {
     // MARK: - PokemonListViewDelegate
     
     func pokemonListView(_ pokemonListVie: PokemonListView, didSelectedPokemon pokemon: Pokemon) {
-        //let viewModel =
-        print(String(describing: pokemon))
-        let detailVC = PokemonDetailViewController()
+        let viewModel = PokemonDetailViewModel(pokemon: pokemon)
+        let detailVC = PokemonDetailViewController(viewModel: viewModel)
+        print("😍"+String(describing: pokemon))
         detailVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(detailVC, animated: true)
     }
