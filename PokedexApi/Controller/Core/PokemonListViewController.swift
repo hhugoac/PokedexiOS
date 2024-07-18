@@ -34,7 +34,6 @@ class PokemonListViewController: UIViewController, PokemonListViewDelegate {
     func pokemonListView(_ pokemonListVie: PokemonListView, didSelectedPokemon pokemon: Pokemon) {
         let viewModel = PokemonDetailViewModel(pokemon: pokemon)
         let detailVC = PokemonDetailViewController(viewModel: viewModel)
-        print("😍"+String(describing: pokemon))
         detailVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(detailVC, animated: true)
     }

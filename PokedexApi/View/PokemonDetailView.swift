@@ -40,10 +40,10 @@ final class PokemonDetailView: UIView {
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            collectionView.widthAnchor.constraint(equalToConstant: 100),
-            collectionView.heightAnchor.constraint(equalToConstant: 100),
-            collectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leftAnchor.constraint(equalTo: leftAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
     }
     
