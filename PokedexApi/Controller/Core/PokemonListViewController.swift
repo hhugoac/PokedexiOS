@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PokemonListViewController: UIViewController {
-    
+class PokemonListViewController: UIViewController, PokemonListViewDelegate {
+
     private let pokemonListView = PokemonListView()
 
     override func viewDidLoad() {
@@ -20,6 +20,7 @@ class PokemonListViewController: UIViewController {
     }
 
     private func setupView() {
+        pokemonListView.delegate = self
         NSLayoutConstraint.activate([
             pokemonListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             pokemonListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -28,4 +29,12 @@ class PokemonListViewController: UIViewController {
         ])
     }
 
+    // MARK: - PokemonListViewDelegate
+    
+    func pokemonListView(_ pokemonListVie: PokemonListView, didSelectedPokemon pokemon: Pokemon) {
+        let viewModel = PokemonDetailViewModel(pokemon: pokemon)
+        let detailVC = PokemonDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
