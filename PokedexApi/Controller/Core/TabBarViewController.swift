@@ -11,7 +11,6 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         setUpTabs()
     }
     
@@ -43,8 +42,8 @@ class TabBarViewController: UITabBarController {
                                         image: pokemonIcon,
                                         tag: 1)
         
-        nav2.tabBarItem =  UITabBarItem(title: "Captures", image: UIImage(systemName: "person"), tag: 2)
-        nav3.tabBarItem =  UITabBarItem(title: "Favorites", image: UIImage(systemName: "person"), tag: 3)
+        nav2.tabBarItem =  UITabBarItem(title: "Captures", image: UIImage(systemName: "camera"), tag: 2)
+        nav3.tabBarItem =  UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 3)
         nav4.tabBarItem =  UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 4)
         
         for nav in [nav1,nav2,nav3,nav4] {

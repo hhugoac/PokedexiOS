@@ -9,7 +9,10 @@ import UIKit
 
 final class PokemonDetailView: UIView {
 
-    private var collectionView: UICollectionView?
+    public var collectionView: UICollectionView?
+
+    private let viewModel: PokemonDetailViewModel
+
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
@@ -17,10 +20,11 @@ final class PokemonDetailView: UIView {
         return spinner
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: PokemonDetailViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemCyan
+        
         let collectionView = createCollectionView()
         self.collectionView = collectionView
         addSubviews(collectionView, spinner)
@@ -28,7 +32,7 @@ final class PokemonDetailView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("Unsuppoorted")
     }
     private func addConstraints() {
         guard let collectionView = collectionView else {
@@ -54,22 +58,18 @@ final class PokemonDetailView: UIView {
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(PokemonPhotoCollectionViewCell.self, forCellWithReuseIdentifier: PokemonPhotoCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }
     
     private func createSection(for  sectionIndex: Int) -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-        ))
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(150)),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        return section
+        let sectionTypes = viewModel.sections
+        switch sectionTypes[sectionIndex] {
+        case .photo:
+            return viewModel.createPhotoSectionLayout()
+        default:
+            return viewModel.createPhotoSectionLayout()
+        }
     }
 }
