@@ -68,6 +68,10 @@ final class PokemonDetailView: UIView {
         switch sectionTypes[sectionIndex] {
         case .photo:
             return viewModel.createPhotoSectionLayout()
+        case .description:
+            return viewModel.createDescriptionSectionLayout()
+        case .stats:
+            return viewModel.createStatusSectionLayout()
         default:
             return viewModel.createPhotoSectionLayout()
         }
